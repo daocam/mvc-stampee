@@ -5,7 +5,7 @@ RequirePage::requireLibrary('Validation');
 
     class ControllerLogin {
         public function index(){
-            return Twig::render('login/login-index.php');
+            return Twig::render('login-index.php');
         }
 
         public function authentication(){
@@ -15,7 +15,7 @@ RequirePage::requireLibrary('Validation');
             $user = new ModelUser();
             $checkuser = $user->checkuser($email, $password);
         
-            return Twig::render('login/login-index.php', ['errors' => $checkuser]);
+            return Twig::render('login-index.php', ['errors' => $checkuser]);
 
         }
 

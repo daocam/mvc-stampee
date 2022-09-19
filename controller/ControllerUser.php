@@ -7,7 +7,7 @@ RequirePage::requireLibrary('Validation');
 class ControllerUser {
 
     public function index(){
-        return Twig::render('user/user-index.php');
+        return Twig::render('user-index.php');
     }
 
     public function list() {
@@ -15,7 +15,7 @@ class ControllerUser {
         if($_SESSION['idPrivilege'] == 1) {
             $user = new ModelUser;
             $select = $user->select();
-            return Twig::render('user/user-list.php', ['users' => $select]);
+            return Twig::render('user-list.php', ['users' => $select]);
         }
         RequirePage::redirect('home'); 
     }
@@ -23,7 +23,7 @@ class ControllerUser {
     public function create(){
         $privileges = new ModelPrivilege;
         $select = $privileges->select('privilege');    
-        return Twig::render('user/user-create.php', ['privileges'=>$select]);
+        return Twig::render('user-create.php', ['privileges'=>$select]);
     }
 
     public function store(){
@@ -42,10 +42,10 @@ class ControllerUser {
             $_POST['email'] = $email;
             $_POST['password'] = $hashPassword;
             $insert = $user->insert($_POST);
-            RequirePage::redirect('home');
+            RequirePage::redirect('user');
         }else{
             $errors =  $validation->displayErrors();
-            return Twig::render('user/user-create.php', ['errors' => $errors, 'user' => $_POST]);
+            return Twig::render('user-create.php', ['errors' => $errors, 'user' => $_POST]);
         }
     }
 }

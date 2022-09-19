@@ -70,7 +70,7 @@
     {% if guest %}
     {% else %}
     <ul class="btns-box">
-        <a href="{{path}}enchere/show/{{enchere.id}}">Modifier</a>
+        <a href="{{path}}enchere/edit/{{enchere.id}}">Modifier</a>
     </ul>
     <form class="sup" action="{{path}}enchere/delete" method="post">
         <input type="hidden" name="id" value="{{ enchere.id }}"> 

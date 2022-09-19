@@ -7,14 +7,14 @@ RequirePage::requireLibrary('Validation');
 class ControllerTimbre {
 
     public function index(){
-        return Twig::render('timbre/timbre-index.php');
+        return Twig::render('timbre-index.php');
     }
 
 
     public function create() {   
         $images = new ModelImage;
         $select = $images->select('filename'); 
-        return Twig::render('timbre/timbre-create.php', ['images'=>$select]);
+        return Twig::render('timbre-create.php', ['images'=>$select]);
     }
 
 
@@ -72,7 +72,7 @@ class ControllerTimbre {
 
         } else {
             $errors =  $validation->displayErrors();
-            return Twig::render('timbre/timbre-create.php', ['errors' => $errors, 'timbre' => $_POST]);
+            return Twig::render('timbre-create.php', ['errors' => $errors, 'timbre' => $_POST]);
         }
     }
 }

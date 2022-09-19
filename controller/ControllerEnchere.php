@@ -9,14 +9,14 @@ class ControllerEnchere {
     public function index(){
         $encheres = new ModelEnchere;
         $select = $encheres->select();
-        return Twig::render('enchere/enchere-index.php', ['encheres' => $select]);
+        return Twig::render('enchere-index.php', ['encheres' => $select]);
     }
 
 
     public function create(){
         $timbres = new ModelTimbre;
         $select = $timbres->select('nom');    
-        return Twig::render('enchere/enchere-create.php', ['timbres'=>$select]);
+        return Twig::render('enchere-create.php', ['timbres'=>$select]);
     }
   
     public function store() {
@@ -34,7 +34,7 @@ class ControllerEnchere {
             RequirePage::redirect('enchere/index');   
         } else {
             $errors =  $validation->displayErrors();
-            return Twig::render('enchere/enchere-create.php', ['errors' => $errors, 'enchere' => $_POST]);
+            return Twig::render('enchere-create.php', ['errors' => $errors, 'enchere' => $_POST]);
         }
     }
 
@@ -47,7 +47,7 @@ class ControllerEnchere {
         $selectTimbre = $timbre->selectId($selectId['idTimbre']);
         $enchereTimbre = $selectTimbre['nom'];
         
-       return Twig::render('enchere/enchere-fiche.php', ['enchere' => $selectId, 'timbre' => $selectTimbre]);
+       return Twig::render('enchere-fiche.php', ['enchere' => $selectId, 'timbre' => $selectTimbre]);
       
     }
 
@@ -59,7 +59,7 @@ class ControllerEnchere {
         if($_SESSION['idPrivilege'] == 1) {
             $enchere = new ModelEnchere;
             $selectId = $enchere->selectId($value);
-            return Twig::render('enchere/enchere-edit.php', ['enchere' => $selectId]);
+            return Twig::render('enchere-edit.php', ['enchere' => $selectId]);
         }
         RequirePage::redirect('enchere/index'); 
     }
@@ -83,7 +83,7 @@ class ControllerEnchere {
                 RequirePage::redirect('enchere/index'); 
             } else {
                 $errors =  $validation->displayErrors();
-                return Twig::render('enchere/enchere-edit.php', ['errors' => $errors, 'enchere' => $_POST]);
+                return Twig::render('enchere-edit.php', ['errors' => $errors, 'enchere' => $_POST]);
             }
         }
         RequirePage::redirect('enchere/index');

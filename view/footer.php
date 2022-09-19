@@ -2,9 +2,9 @@
 <footer>
 <div class="wrapper-medium">
     <div class="box-contact">
-        <div class="wrapper-logo">
+        <a class="wrapper-logo" href="{{ path }}home">
             <img src="{{ path }}assets/img/logo-2.png" alt="logo" class="img-logo">
-        </div>
+        </a>
         <div class="news">
             <h3 class="answer">Vous ne trouvez pas <span class="block">votre prochaine acquisition ?</span></h3>
             <button class="btn-1">Contactez-nous</button>

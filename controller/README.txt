@@ -6,3 +6,6 @@ du projet.
 
 Voici le lien github pour voir le site : https://github.com/daocam/mvc-stampee
 Voici le lien webdev pour voir le site : https://e2195833.webdev.cmaisonneuve.qc.ca/mvc-stampee/
+
+Admin pour démo 
+nom: Admin - email: ad@min.ca - password: 123456
